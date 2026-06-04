@@ -1,6 +1,6 @@
 # Privacy Policy for Karmageddon
 
-**Last Updated**: June 2, 2026
+**Last Updated**: June 4, 2026
 
 ## 1. Introduction
 
@@ -8,7 +8,7 @@ Karmageddon ("we", "our", or "the extension") is a browser extension that helps 
 
 ## 2. Data We Store Locally
 
-All your personal data is stored **locally on your device** using Chrome's secure storage API. We never have access to this data unless you enable Cloud Sync.
+All your personal data is stored **locally on your device** using Chrome's secure storage API. We never have access to this data unless you log in (which enables Cloud Sync).
 
 **Stored locally on your device:**
 - **Your Ratings**: Numerical ratings (1-5 scale) you assign to players
@@ -18,11 +18,11 @@ All your personal data is stored **locally on your device** using Chrome's secur
 - **Authentication Tokens**: OAuth tokens for your FACEIT account (if you log in)
 - **Timestamps**: When ratings were created or modified
 - **User Settings**: Your extension preferences
-- **Sync Status**: Whether ratings have been synced to the cloud (if Cloud Sync is enabled)
+- **Sync Status**: Whether ratings have been synced to the cloud (if logged in)
 
 ## 3. Optional FACEIT Login
 
-Karmageddon offers FACEIT login to identify your account. Currently, login is optional for basic features like local ratings. Some features (such as Cloud Sync or upcoming community ratings) require login.
+Karmageddon offers FACEIT login to identify your account. Login is optional for basic features like local ratings. **Logging in automatically enables Cloud Sync** to back up your ratings across devices. Future features like community ratings will also require login.
 
 ### What Happens When You Log In
 
@@ -49,21 +49,21 @@ During login and token refresh, our server processes the following **in memory o
 - Does NOT have a database of users
 - Does NOT retain any information after the request completes
 
-## 4. Optional Cloud Sync
+## 4. Cloud Sync
 
-Karmageddon offers optional Cloud Sync to sync your ratings across devices. **This feature is entirely optional** and must be explicitly enabled after logging in.
+Karmageddon offers Cloud Sync to sync your ratings across devices. **Cloud Sync is automatically enabled when you log in with FACEIT.** If you don't want cloud sync, don't log in — your ratings will remain stored locally on your device.
 
 ### What Cloud Sync Does
 
 When enabled, Cloud Sync:
-- Stores your ratings in Firebase Firestore (Google Cloud)
+- Stores your ratings in our server's database
 - Syncs ratings between your devices automatically
 - Downloads ratings to new devices when you log in
 - Syncs new ratings as you create them
 
 ### What Data is Stored in the Cloud
 
-If you enable Cloud Sync, the following data is stored in our Firestore database:
+When logged in, the following data is stored in our database:
 - **Player IDs**: FACEIT player identifiers you have rated
 - **Player Names**: FACEIT nicknames of rated players
 - **Ratings**: Your numerical ratings (1-5 scale)
@@ -79,17 +79,17 @@ If you enable Cloud Sync, the following data is stored in our Firestore database
 
 ### Disabling Cloud Sync
 
-You can disable Cloud Sync at any time:
-- Disabling stops syncing but does **not** automatically delete your cloud data
+To stop cloud sync, log out of your FACEIT account:
+- Logging out stops syncing but does **not** automatically delete your cloud data
 - Your local data remains unchanged
-- To delete cloud data, use the "Delete Cloud Data" option in settings
+- To delete your cloud data, email us at hey@karmageddon.app
 
 ## 5. Data Flow Summary
 
 | Data | Where It Goes | Stored? |
 |------|--------------|---------|
 | Your ratings & tags | Your device | Yes (locally) |
-| Your ratings & tags | Firebase Firestore | Only if Cloud Sync enabled |
+| Your ratings & tags | Our cloud servers | Yes, if logged in |
 | Your FACEIT profile | Your device only | Yes (locally) |
 | OAuth tokens | Your device only | Yes (locally) |
 | Authorization code | Our server → FACEIT | No (processed transiently) |
@@ -106,7 +106,7 @@ You can disable Cloud Sync at any time:
 ### Firebase (Google Cloud)
 - Our token exchange server runs on Firebase Cloud Functions (Google Cloud Platform)
 - Firebase Authentication verifies your identity for Cloud Sync
-- Firebase Firestore stores your ratings if Cloud Sync is enabled
+- Your ratings are stored in our cloud database if you log in
 - Hosted in Europe (europe-west1 region)
 - Review [Google Cloud Privacy Policy](https://cloud.google.com/terms/cloud-privacy-notice)
 
@@ -117,7 +117,7 @@ You can disable Cloud Sync at any time:
 - **CORS**: Our server only accepts requests from the official extension
 - **Secret Management**: Client secrets are stored in Firebase Secret Manager, never exposed to clients
 - **HTTPS**: All communications are encrypted
-- **Firestore Security Rules**: Cloud data is protected by Firebase security rules that ensure user isolation
+- **Database Security Rules**: Cloud data is protected by security rules that ensure user isolation
 
 ## 8. Your Rights and Controls
 
@@ -125,8 +125,8 @@ You have complete control over your data:
 
 - **Export**: Export all your data at any time via the extension popup
 - **Delete**: Delete individual ratings or all data at any time
-- **Cloud Sync**: Enable or disable cloud sync at any time
-- **Delete Cloud Data**: Delete all your cloud data through settings
+- **Cloud Sync**: Automatically enabled with login; log out to disable
+- **Delete Cloud Data**: Email hey@karmageddon.app to request deletion
 - **Logout**: Log out of FACEIT to remove tokens from your device
 - **Disable**: Disable the extension via the toggle in the popup
 - **Uninstall**: Uninstalling removes all local data from your device
@@ -134,7 +134,7 @@ You have complete control over your data:
 ## 9. Data Retention
 
 - **Local data**: Retained on your device until you delete it or uninstall the extension
-- **Cloud data**: Retained until you delete it or request deletion (not automatically deleted when you disable sync or uninstall)
+- **Cloud data**: Retained until you request deletion (not automatically deleted when you log out or uninstall)
 - **Server data**: We retain nothing - token exchange data is processed in memory and immediately discarded
 
 ## 10. Analytics and Tracking
@@ -176,7 +176,7 @@ We are introducing **Community Karma Scores** — aggregate reputation scores ca
 
 **Future requirement:**
 - Rating players will require FACEIT login (to ensure one rating per user per player)
-- Cloud Sync remains optional for personal backup/sync across devices
+- Cloud Sync is enabled automatically when you log in
 
 ### Other Planned Features
 
@@ -189,6 +189,7 @@ We will update this policy before launching any feature that changes how your da
 
 For questions or concerns about this privacy policy:
 
+- **Email**: hey@karmageddon.app
 - **Discord**: https://discord.gg/JpnNX4QRFu
 - **GitHub Issues**: https://github.com/bernardo-blando/karmageddon/issues
 - **Ko-fi**: https://ko-fi.com/kaarmageddon
@@ -198,14 +199,14 @@ For questions or concerns about this privacy policy:
 | Aspect | Status |
 |--------|--------|
 | Ratings & settings | Stored locally on your device |
-| Cloud Sync | Optional, stores ratings in Firebase Firestore |
+| Cloud Sync | Enabled automatically when you log in |
 | Community Karma | Your ratings contribute to public aggregate scores (no opt-out) |
 | Individual ratings | Always private — no one sees WHO rated or what score |
 | FACEIT login | Required for rating (future), tokens stored locally |
-| Server storage | Token exchange: none. Cloud Sync: only if enabled |
+| Server storage | Token exchange: none. Cloud data: if logged in |
 | Analytics/tracking | None currently (future: opt-out available) |
 | Data selling | Never |
-| Your control | Full - export, delete local data anytime |
+| Your control | Export anytime, delete local data anytime, email for cloud deletion |
 
 ## 15. Legal Compliance
 
@@ -213,12 +214,12 @@ We respect your privacy rights under GDPR, CCPA, and other privacy regulations:
 
 - **Data minimization**: We only process what's necessary for functionality
 - **Purpose limitation**: Cloud data is used for syncing your ratings and providing extension features
-- **User consent**: Cloud features require explicit opt-in
+- **User consent**: Logging in enables cloud sync; users who don't want sync can use the extension without logging in
 - **Data portability**: You can export all your data at any time
-- **Right to deletion**: You can delete local and cloud data through the extension
+- **Right to deletion**: You can delete local data through the extension; email us to delete cloud data
 - **Transparency**: This policy explains exactly what happens with your data
-- **User control**: You can access, export, or delete your data through the extension
+- **User control**: You can access and export your data through the extension
 
 ---
 
-**Summary**: Karmageddon stores your ratings and settings locally on your device. Optional FACEIT login uses our server only as a secure proxy for token exchange. Optional Cloud Sync stores your ratings in Firebase Firestore for cross-device sync. **Community Karma Scores** (coming soon) will aggregate all user ratings into public scores — individual ratings remain private, only the aggregate is public. By rating players, you consent to contributing to community karma. Your data stays under your control.
+**Summary**: Karmageddon stores your ratings and settings locally on your device. FACEIT login uses our server only as a secure proxy for token exchange. **Logging in automatically enables Cloud Sync**, which stores your ratings in our cloud database for cross-device sync — if you don't want cloud sync, don't log in. **Community Karma Scores** (coming soon) will aggregate all user ratings into public scores — individual ratings remain private, only the aggregate is public. By rating players, you consent to contributing to community karma. Your data stays under your control.
