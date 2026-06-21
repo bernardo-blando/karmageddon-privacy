@@ -191,7 +191,7 @@ We will update this policy before launching any feature that changes how your da
 For questions or concerns about this privacy policy:
 
 - **Email**: hey@karmageddon.app
-- **Discord**: https://discord.gg/JpnNX4QRFu
+- **Discord**: https://discord.gg/wg3fb4hNTS
 - **GitHub Issues**: https://github.com/bernardo-blando/karmageddon/issues
 - **Ko-fi**: https://ko-fi.com/kaarmageddon
 
