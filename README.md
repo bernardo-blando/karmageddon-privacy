@@ -1,6 +1,6 @@
 # Privacy Policy for Karmageddon
 
-**Last Updated**: June 4, 2026
+**Last Updated**: June 7, 2026
 
 ## 1. Introduction
 
@@ -20,9 +20,9 @@ All your personal data is stored **locally on your device** using Chrome's secur
 - **User Settings**: Your extension preferences
 - **Sync Status**: Whether ratings have been synced to the cloud (if logged in)
 
-## 3. Optional FACEIT Login
+## 3. FACEIT Login (Required for Rating)
 
-Karmageddon offers FACEIT login to identify your account. Login is optional for basic features like local ratings. **Logging in automatically enables Cloud Sync** to back up your ratings across devices. Future features like community ratings will also require login.
+Karmageddon requires FACEIT login to rate players. **Login is mandatory to use rating features** — this ensures one rating per user per player for accurate Community Karma scores. **Logging in automatically enables Cloud Sync** to back up your ratings across devices. Existing local ratings are automatically uploaded to the cloud when you log in.
 
 ### What Happens When You Log In
 
@@ -174,9 +174,10 @@ We are introducing **Community Karma Scores** — aggregate reputation scores ca
 - By using Karmageddon to rate players, you consent to your ratings being included in aggregate scores
 - Your individual rating remains private; only the mathematical aggregate is shared
 
-**Future requirement:**
-- Rating players will require FACEIT login (to ensure one rating per user per player)
+**Current requirement:**
+- Rating players requires FACEIT login (to ensure one rating per user per player)
 - Cloud Sync is enabled automatically when you log in
+- Existing local ratings are uploaded to the cloud on first login
 
 ### Other Planned Features
 
@@ -198,12 +199,12 @@ For questions or concerns about this privacy policy:
 
 | Aspect | Status |
 |--------|--------|
-| Ratings & settings | Stored locally on your device |
+| Ratings & settings | Stored locally on your device and synced to cloud |
 | Cloud Sync | Enabled automatically when you log in |
 | Community Karma | Your ratings contribute to public aggregate scores (no opt-out) |
 | Individual ratings | Always private — no one sees WHO rated or what score |
-| FACEIT login | Required for rating (future), tokens stored locally |
-| Server storage | Token exchange: none. Cloud data: if logged in |
+| FACEIT login | **Required to rate players**, tokens stored locally |
+| Server storage | Token exchange: none. Cloud data: stored when logged in |
 | Analytics/tracking | None currently (future: opt-out available) |
 | Data selling | Never |
 | Your control | Export anytime, delete local data anytime, email for cloud deletion |
@@ -214,7 +215,7 @@ We respect your privacy rights under GDPR, CCPA, and other privacy regulations:
 
 - **Data minimization**: We only process what's necessary for functionality
 - **Purpose limitation**: Cloud data is used for syncing your ratings and providing extension features
-- **User consent**: Logging in enables cloud sync; users who don't want sync can use the extension without logging in
+- **User consent**: By logging in to use rating features, users consent to cloud sync and contributing to Community Karma scores
 - **Data portability**: You can export all your data at any time
 - **Right to deletion**: You can delete local data through the extension; email us to delete cloud data
 - **Transparency**: This policy explains exactly what happens with your data
@@ -222,4 +223,4 @@ We respect your privacy rights under GDPR, CCPA, and other privacy regulations:
 
 ---
 
-**Summary**: Karmageddon stores your ratings and settings locally on your device. FACEIT login uses our server only as a secure proxy for token exchange. **Logging in automatically enables Cloud Sync**, which stores your ratings in our cloud database for cross-device sync — if you don't want cloud sync, don't log in. **Community Karma Scores** (coming soon) will aggregate all user ratings into public scores — individual ratings remain private, only the aggregate is public. By rating players, you consent to contributing to community karma. Your data stays under your control.
+**Summary**: Karmageddon requires FACEIT login to rate players. **Logging in automatically enables Cloud Sync**, which stores your ratings in our cloud database for cross-device sync. Existing local ratings are automatically uploaded when you log in. FACEIT login uses our server only as a secure proxy for token exchange. **Community Karma Scores** (coming soon) will aggregate all user ratings into public scores — individual ratings remain private, only the aggregate is public. By logging in and rating players, you consent to cloud sync and contributing to community karma. Your data stays under your control.
